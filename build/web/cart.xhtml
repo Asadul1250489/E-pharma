@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <ui:insert>
+             <ui:include src="./home.xhtml"/>
+             </ui:insert>
+       <h:form id="form">
+           <p:dataTable var="cart" value="#{medicineCart.cart}"
+                             rows="10">
+                    <f:facet name="header">
+                        <h:outputLabel value="Your Medicine "/>
+                    </f:facet>
+                    <p:column headerText="Medicine Name">
+                        <p:outputLabel value="#{cart.p.proName}" />
+                    </p:column>
+                    <p:column headerText="Quantity">
+                        <p:inputText value="#{cart.quantity}" style="width:20px"/>
+                    </p:column>
+                    
+                    <p:column headerText="Price">
+                        <p:outputLabel value="#{cart.p.proPrice}" />
+                    </p:column>
+                    <p:column headerText="Image" style="text-align: center;">
+                        <h:graphicImage name="#{cart.p.proUrl}" library="images"
+                                        width="50" height="60" />
+                    </p:column>
+                    <p:column width="80" headerText="Delete" style="text-align: center;">
+                        <p:commandButton icon="ui-icon-trash"
+                                         onclick="return confirm('Are you sure you want to remove this item from your cart?');"
+                                         update="@form"
+                                         action="#{medicineCart.removeFromCart(cart)}"/>
+                    </p:column>
+                    <f:facet name="footer">
+                        Total : <h:outputLabel value="#{medicineCart.total}"/>
+                    </f:facet>
+                </p:dataTable>
+                <p:commandButton value="Update" 
+                                 styleClass="btn btn-default"
+                                 action="#{medicineCart.updateCart()}"
+                                 icon="fa fa-edit"
+                                 ajax="false"/>
+                <h:outputLink value="allMedicine.xhtml" styleClass="btn btn-default"
+                                 >
+                    Continue buy medicine
+                </h:outputLink>
+                <p:commandButton value="Checkout" 
+                                 action="#{medicineCart.payment()}"
+                                 ajax="false"/>
+                
+                   
+            </h:form>
+    </h:body>
+</html>
+

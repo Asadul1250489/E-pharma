@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 22, 2019 8:37:38 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="healthcare" name="entity.DelivaryCost" optimistic-lock="version" table="delivary_cost">
+    <id name="delivaryId" type="int">
+      <column name="delivary_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="zoneName" type="string">
+      <column length="45" name="zone_name" not-null="true"/>
+    </property>
+    <property name="delivaryCost" type="double">
+      <column name="delivary_cost" not-null="true" precision="22" scale="0"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="proOrders" table="pro_order">
+      <key>
+        <column name="delivary_id"/>
+      </key>
+      <one-to-many class="entity.ProOrder"/>
+    </set>
+  </class>
+</hibernate-mapping>

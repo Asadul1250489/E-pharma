@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 22, 2019 8:37:38 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="healthcare" name="entity.Product" optimistic-lock="version" table="product">
+    <id name="proId" type="java.lang.Integer">
+      <column name="pro_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="entity.SubCategory" fetch="select" name="subCategory">
+      <column name="sub_cat_id" not-null="true"/>
+    </many-to-one>
+    <property name="proName" type="string">
+      <column length="45" name="pro_name" not-null="true"/>
+    </property>
+    <property name="proQty" type="int">
+      <column name="pro_qty" not-null="true"/>
+    </property>
+    <property name="proPrice" type="double">
+      <column name="pro_price" not-null="true" precision="22" scale="0"/>
+    </property>
+    <property name="proUrl" type="string">
+      <column length="45" name="pro_url" not-null="true"/>
+    </property>
+    <property name="proDesc" type="string">
+      <column length="200" name="pro_desc" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="proOrderDetaileses" table="pro_order_detailes">
+      <key>
+        <column name="pro_id" not-null="true"/>
+      </key>
+      <one-to-many class="entity.ProOrderDetailes"/>
+    </set>
+  </class>
+</hibernate-mapping>

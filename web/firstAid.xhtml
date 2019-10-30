@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        
+        
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+    <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  </style>
+    </h:head>
+    <h:body>
+         <ui:insert name="menu">
+            <ui:include src="./home.xhtml" />
+        </ui:insert>
+        <div class="jumbotron text-center">
+            <h1 style="color: #D20005">First Aid And  Emergencies</h1>
+            <h2>CALL <h3 style="color: red">911</h3> NOW<br/>
+                IF YOU ARE HAVING:</h2>
+
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      
+<ul style="list-style-type:disc;">
+  <li>Chest Pain</li>
+  <li>Sudden Weakness or Numbness</li>
+  <li>Difficulty Breathing</li>
+  <li>A Medical Emergency</li>
+</ul> 
+    </div>
+    <div class="col-sm-8">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+      <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+            <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/images/leg treat.jpg" alt="image" width="500" height="300"/>
+    </div>
+    <div class="carousel-item">
+      <img src="/images/frozen_vegetable_ice_pack_on_shoulder.jpg" alt="image" width="700" height="300"/>
+    </div>
+    <div class="carousel-item">
+      <img src="/images/holding_girls_arm_under_water_tap.jpg" alt="image" width="700" height="500"/>
+    </div>
+  </div>
+              <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+        </div>
+        
+    </div>
+  </div>
+</div>
+
+    </h:body>
+</html>
+
